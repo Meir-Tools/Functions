@@ -8,8 +8,10 @@
 ::add: @ECHO OFF & TITLE Meir-E &SET MAN_Func=CALL %USERPROFILE%\Documents\GitHub\Functions\BATman.bat 
 ::replace: CALL :func
 ::with: CALL !MAN_Func! :func
+@setlocal &echo off
 CALL %*
-GOTO :EOF
+endlocal &echo on
+EXIT /B 0
 ::----------------------------Functions-----------------------------------------
 :ConsolePrint <>
 	setlocal
@@ -28,6 +30,12 @@ EXIT /B 0
       echo %%a %%b
 	  SET ini_%%a=%%b
 	)
+EXIT /B 0 
+:AHK_Send_Keys <Key_strokes>
+	::ref | https://github.com/Meir-E/AHK_Send_Key
+	setlocal
+	start "" AHK_Send_Key.exe %1
+	endlocal
 EXIT /B 0 
 :ConsolePrintColor <hexColorCode> <str>
 	setlocal
