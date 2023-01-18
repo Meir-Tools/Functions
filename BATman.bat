@@ -5,7 +5,11 @@
 :: REF|https://github.com/Meir-E/MAN/blob/main/Menu_MAN.bat
 :: default on : %USERPROFILE%\Documents\GitHub\Functions\BATman.bat
 ::-----------------Run once , can run inly in batch file , Global----------------------------
-@echo See Manual&pause&GOTO :EOF
+::add: @ECHO OFF & TITLE Meir-E &SET MAN_Func=CALL %USERPROFILE%\Documents\GitHub\Functions\BATman.bat 
+::replace: CALL :func
+::with: CALL !MAN_Func! :func
+CALL %*
+GOTO :EOF
 ::----------------------------Functions-----------------------------------------
 :ConsolePrint <>
 	setlocal
@@ -18,6 +22,13 @@ EXIT /B 0
 	for /F "tokens=1 delims=," %%a in ('"choice /N /C 0123456789abcdefghijklmnopqrstuvwxyz"') do (set "result=%%a")
 	endlocal & set result=%result% & set %~1=%result%
 EXIT /B 0
+:ini_print <ini_file_path>
+	::ref | 20221217_|https://github.com/Meir-E/Batch_INI_API
+	for /f "usebackq tokens=1-2 delims==" %%a in (%1) do (
+      echo %%a %%b
+	  SET ini_%%a=%%b
+	)
+EXIT /B 0 
 :ConsolePrintColor <hexColorCode> <str>
 	setlocal
 	::need run once | REF | https://stackoverflow.com/questions/30025027/code-for-changing-colors-in-batch-how-is-it-working
@@ -36,5 +47,12 @@ EXIT /B 0
 	echo "       @@   @@ (@   #@.  @@       @@   #@*  @ @@#      "      
 	echo "       @@    @@@,   #@. @@         @@  #@     @@#      "
 	echo ----------------------------------------------------------
+EXIT /B 0
+:ShowMenu <file_path>	
+	:: Print Menu here
+	FOR /f "skip=2 tokens=1-2 delims=|" %%a IN ('"findstr /R /C:":OPT" %1"') do (echo ^> %%b)
+	CALL !MAN_Func! :ConsolePrint "test for printing: " & echo.
+	CALL !MAN_Func! :ConsolePrint "Type 1, 2, 3, or 4 then press ENTER: " & echo. & CALL :GetChar M &REM 
+	CALL :OPT%M% &REM replace here the IF %M%==1 GOTO OPT1 ...statements....
 EXIT /B 0
 ::------------------------------------END-------------------------------------------
