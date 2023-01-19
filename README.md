@@ -1,4 +1,4 @@
 # Functions
-# The Goal is to
-## Reduce mistakes
-## Reduce brain colories expesses
+## The Goal is to
+### Reduce mistakes
+### Reduce brain colories expesses
