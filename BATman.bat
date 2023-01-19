@@ -6,11 +6,11 @@
 :: default on : %USERPROFILE%\Documents\GitHub\Functions\BATman.bat
 ::-----------------Run once , can run inly in batch file , Global----------------------------
 ::add: @ECHO OFF & TITLE Meir-E &SET MAN_Func=CALL %USERPROFILE%\Documents\GitHub\Functions\BATman.bat 
+::or: @ECHO OFF & TITLE Meir-E &SET BATman=%USERPROFILE%\Documents\GitHub\Functions\BATman.bat &call %1
 ::replace: CALL :func
 ::with: CALL !MAN_Func! :func
-@setlocal &echo off
+SET local_path="%0\.."
 CALL %*
-endlocal &echo on
 EXIT /B 0
 ::----------------------------Functions-----------------------------------------
 :ConsolePrint <>
@@ -34,7 +34,7 @@ EXIT /B 0
 :AHK_Send_Keys <Key_strokes>
 	::ref | https://github.com/Meir-E/AHK_Send_Key
 	setlocal
-	start "" AHK_Send_Key.exe %1
+	start "" %local_path%\AHK_Send_Key.exe %1
 	endlocal
 EXIT /B 0 
 :ConsolePrintColor <hexColorCode> <str>
@@ -48,6 +48,7 @@ EXIT /B 0
 	EXIT /B 0
 ::------------------------------------MAN_Functions-------------------------------------------
 :Print_MAN_Logo
+:MAN_Print_Logo
 	echo -----------------------------------------------------------
 	echo "       @@@@        @@@.      @@@       #@*     @*      "      
 	echo "       @@*@(      @&#@.     @@@@@      #@@     @#      "      
@@ -58,11 +59,13 @@ EXIT /B 0
 	echo ----------------------------------------------------------
 EXIT /B 0
 :ShowMenu <file_path>	
+:MAN_ShowMenu <file_path>	
 	:: Print Menu here, 
 	:: example :ShowMenu %0
-	FOR /f "skip=2 tokens=1-2 delims=|" %%a IN ('"findstr /R /C:":OPT" %1"') do (echo ^> %%b)
-	CALL :ConsolePrint "test for printing: " & echo.
+	:: need add: CALL %BATman% :GetChar M & CALL :OPT%M%
+	FOR /f "tokens=1-2 delims=|" %%a IN ('findstr /R /C:":OPT" %1') do (echo ^> %%b)
+	::CALL :ConsolePrint "Type 1, 2, 3, or 4 then press ENTER: " & echo.
 	CALL :ConsolePrint "Type 1, 2, 3, or 4 then press ENTER: " & echo. & CALL :GetChar M &REM 
-	CALL :OPT%M% &REM replace here the IF %M%==1 GOTO OPT1 ...statements....
+	CALL %1 :OPT%M% &REM replace here the IF %M%==1 GOTO OPT1 ...statements....
 EXIT /B 0
 ::------------------------------------END-------------------------------------------
