@@ -11,7 +11,7 @@
 ::with: CALL !MAN_Func! :func
 SET local_path="%0\.."
 CALL %*
-EXIT /B 0
+EXIT /B %ERRORLEVEL%
 ::----------------------------Functions-----------------------------------------
 :ConsolePrint <>
 	setlocal
@@ -32,6 +32,7 @@ EXIT /B 0
 	)
 EXIT /B 0 
 :AHK_Send_Keys <Key_strokes>
+	:: May requare Admin mode
 	::ref | https://github.com/Meir-E/AHK_Send_Key
 	setlocal
 	start "" %local_path%\AHK_Send_Key.exe %1
@@ -66,6 +67,10 @@ EXIT /B 0
 	FOR /f "tokens=1-2 delims=|" %%a IN ('findstr /R /C:":OPT" %1') do (echo ^> %%b)
 	::CALL :ConsolePrint "Type 1, 2, 3, or 4 then press ENTER: " & echo.
 	CALL :ConsolePrint "Type 1, 2, 3, or 4 then press ENTER: " & echo. & CALL :GetChar M &REM 
-	CALL %1 :OPT%M% &REM replace here the IF %M%==1 GOTO OPT1 ...statements....
+	::CALL :OPT%M% &REM replace here the IF %M%==1 GOTO OPT1 ...statements....
 EXIT /B 0
-::------------------------------------END-------------------------------------------
+:GetIP_byMAC <MAC_num> &REM update_20012023
+	FOR /F "tokens=1" %%F IN ('"arp -a | findstr /R /C:%1"') DO set Result=%%F
+	IF [%Result%]==[] (echo String is Empty, no IP.&EXIT /B 1) else (echo %Result% )
+EXIT /B 0
+::------------------------------------END--------------------------------------------------------
