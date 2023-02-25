@@ -9,3 +9,4 @@ curl --ssl-no-revoke -L https://github.com/Meir-E/Functions/archive/refs/tags/ta
 "%PROGRAMFILES%\7-Zip\7z" e myfile.zip -o"%USERPROFILE%\Documents\GitHub\Functions"
 del myfile.zip
 ```
+Basic writing and formatting syntax | https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
