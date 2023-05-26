@@ -9,6 +9,7 @@
 ::or: @ECHO OFF & TITLE Meir-E &SET BATman=%USERPROFILE%\Documents\GitHub\Functions\BATman.bat &call %1
 ::replace: CALL :func
 ::with: CALL !MAN_Func! :func
+SET BATman=%USERPROFILE%\Documents\GitHub\Functions\BATman
 SET local_path="%0\.."
 CALL %*
 EXIT /B %ERRORLEVEL%
