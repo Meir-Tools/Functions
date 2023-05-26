@@ -10,3 +10,8 @@ curl --ssl-no-revoke -L https://github.com/Meir-E/Functions/archive/refs/tags/ta
 del myfile.zip
 ```
 Basic writing and formatting syntax | https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
+
+Run ver/2
+```
+@SET ME=IR & TITLE Mei-R:MAN &SET BATman=%USERPROFILE%\Documents\GitHub\Functions\BATman
+```
