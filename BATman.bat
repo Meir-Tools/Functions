@@ -38,6 +38,13 @@ EXIT /B 0
 	setlocal
 	start "" %local_path%\AHK_Send_Key.exe %1
 	endlocal
+EXIT /B 0  
+:AHK_Img_Click <Img_path>
+	:: May requare Admin mode
+	::ref | https://github.com/Meir-E/AHK_Img_Click
+	setlocal
+	start "" %local_path%\AHK_Img_Click.exe %1
+	endlocal
 EXIT /B 0 
 :ConsolePrintColor <hexColorCode> <str>
 	setlocal
