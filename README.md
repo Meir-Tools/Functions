@@ -1,7 +1,7 @@
 # Functions
 ## The Goal is to
 ### Reduce mistakes
-### Reduce brain colories expesses
+### Reduce brain colories expensses
 # Install
 ```
 winget install -e --id 7zip.7zip
