@@ -109,3 +109,8 @@ EXIT /B 0
 	IF [%Result%]==[] (echo String is Empty, no IP.&EXIT /B 1) else (echo %Result% )
 EXIT /B 0
 ::------------------------------------END--------------------------------------------------------
+:: TBD
+:: add Check_Installed function to checl files installed ? 
+:: 
+:: 
+:: 
