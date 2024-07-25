@@ -108,6 +108,19 @@ EXIT /B 0
 	FOR /F "tokens=1" %%F IN ('"arp -a | findstr /R /C:%1"') DO set Result=%%F
 	IF [%Result%]==[] (echo String is Empty, no IP.&EXIT /B 1) else (echo %Result% )
 EXIT /B 0
+:Edit_me    &REM | E - Edit
+	:: need send the '%0' over the function
+	::set lpath=%0 ::in top
+	echo %lpath%
+	start "" "C:\Program Files\Notepad++\notepad++.exe" %lpath%
+	pause
+EXIT /B 0
+:Info_About &REM I - Info and About
+	CALL :MAN_Print_Meir_tools_Logo_shrinked1 &REM ### 
+	echo info about this MAN menu , how to use , TBD
+	echo By Meir-Tools ^| https://github.com/Meir-Tools/MAN
+	echo Revision 0.9b , date 20240725
+EXIT /B 0
 ::------------------------------------END--------------------------------------------------------
 :: TBD
 :: add Check_Installed function to checl files installed ? 
