@@ -19,3 +19,4 @@ Run ver/2
 ```
 @SET ME=IR & TITLE Mei-R:MAN & %USERPROFILE%\Documents\GitHub\Functions\BATman
 ```
+# Install - option 2
