@@ -19,4 +19,8 @@ Run ver/2
 ```
 @SET ME=IR & TITLE Mei-R:MAN & %USERPROFILE%\Documents\GitHub\Functions\BATman
 ```
-# Install - option 2
+# Install - option 2 - Only update BATman.bat
+```
+cd "%USERPROFILE%\Documents\GitHub\Functions"
+curl --ssl-no-revoke -L https://raw.githubusercontent.com/Meir-Tools/Functions/main/BATman.bat > BATman.bat
+```
