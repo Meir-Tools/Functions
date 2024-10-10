@@ -9,7 +9,7 @@ curl --ssl-no-revoke -L https://github.com/Meir-E/Functions/archive/refs/tags/ta
 "%PROGRAMFILES%\7-Zip\7z" e myfile.zip -o"%USERPROFILE%\Documents\GitHub\Functions"
 del myfile.zip
 ```
-# Install - option 2 - Only update BATman.bat
+# After Install Update BATman.bat
 ```
 cd "%USERPROFILE%\Documents\GitHub\Functions"
 curl --ssl-no-revoke -L https://raw.githubusercontent.com/Meir-Tools/Functions/main/BATman.bat > BATman.bat
