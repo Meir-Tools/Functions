@@ -27,5 +27,5 @@ curl --ssl-no-revoke -L https://raw.githubusercontent.com/Meir-Tools/Functions/m
 ## check and errors
 ..\Functions\BATman -> Not Installed
 ```
-if exist %BATman%.* ( echo %BATman% -^> Installed ) else ( echo %BATman% -^> Not Installed & PAUSE)
+if exist %BATman%.* ( echo %BATman% -^> Installed ) else ( echo %BATman% -^> Not Installed &echo.more info here https://github.com/Meir-Tools/Functions/blob/main/README.md & PAUSE & exit )
 ```
