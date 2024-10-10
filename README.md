@@ -9,6 +9,11 @@ curl --ssl-no-revoke -L https://github.com/Meir-E/Functions/archive/refs/tags/ta
 "%PROGRAMFILES%\7-Zip\7z" e myfile.zip -o"%USERPROFILE%\Documents\GitHub\Functions"
 del myfile.zip
 ```
+# Install - option 2 - Only update BATman.bat
+```
+cd "%USERPROFILE%\Documents\GitHub\Functions"
+curl --ssl-no-revoke -L https://raw.githubusercontent.com/Meir-Tools/Functions/main/BATman.bat > BATman.bat
+```
 Basic writing and formatting syntax | https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
 
 Run ver/1
@@ -18,11 +23,6 @@ Run ver/1
 Run ver/2
 ```
 @SET ME=IR & TITLE Mei-R:MAN & %USERPROFILE%\Documents\GitHub\Functions\BATman
-```
-# Install - option 2 - Only update BATman.bat
-```
-cd "%USERPROFILE%\Documents\GitHub\Functions"
-curl --ssl-no-revoke -L https://raw.githubusercontent.com/Meir-Tools/Functions/main/BATman.bat > BATman.bat
 ```
 ## check and errors
 ..\Functions\BATman -> Not Installed
