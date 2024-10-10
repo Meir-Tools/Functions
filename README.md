@@ -24,7 +24,7 @@ Run ver/2
 cd "%USERPROFILE%\Documents\GitHub\Functions"
 curl --ssl-no-revoke -L https://raw.githubusercontent.com/Meir-Tools/Functions/main/BATman.bat > BATman.bat
 ```
-## errors
+## check and errors
 ```
 if exist %BATman%.* ( echo %BATman% -^> Installed ) else ( echo %BATman% -^> Not Installed & PAUSE)
 ```
